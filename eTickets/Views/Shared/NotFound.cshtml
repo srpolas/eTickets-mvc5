@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Page Not Found";
+}
+
+<div class="container text-center mt-5">
+    <h1 class="display-4">Oops!</h1>
+    <p class="lead">We can't seem to find the page you're looking for.</p>
+    <hr class="my-4">
+    <p>
+        It looks like nothing was found at this location. Maybe try one of the links below or a search?
+    </p>
+    <a class="btn btn-primary btn-lg" asp-controller="Movies" asp-action="Index">Go to Homepage</a>
+    
+</div>
+
+<style>
+    .container {
+        max-width: 600px;
+        margin-top: 100px;
+    }
+
+    .display-4 {
+        font-size: 3.5rem;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+    }
+
+    .btn-lg {
+        padding: 0.75rem 1.25rem;
+        font-size: 1.25rem;
+    }
+</style>

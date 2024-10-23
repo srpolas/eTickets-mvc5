@@ -28,8 +28,11 @@ namespace eTickets
         {
             //DbContext Configurations
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+            
+            
             //Services Configurations
             services.AddScoped<IActorsService, ActorsService>();
+            services.AddScoped<IProducersService, ProducersService>();
 
 
             services.AddControllersWithViews();
