@@ -8,30 +8,34 @@ namespace eTickets.Data.Services
 {
 	public class ActorsService : IActorsService
 	{
+		//Get Data from Database
 		private readonly AppDbContext _context;
 		public ActorsService(AppDbContext context)
 		{
 			_context = context;
 		}
-		public void Add(Actor actor)
+		//Add Data to Database 
+		public async Task AddAsync(Actor actor)
 		{
-			throw new System.NotImplementedException();
+			await _context.Actors.AddAsync(actor);
+			await _context.SaveChangesAsync();
 		}
-
+		//Delete Data from Database
 		public void Delete(int id)
 		{
 			throw new System.NotImplementedException();
 		}
-
-		public async Task<IEnumerable<Actor>> GetAll()
+		//Get Data from Database
+		public async Task<IEnumerable<Actor>> GetAllAsync()
 		{
 			var result = await _context.Actors.ToListAsync();
 			return result;
 		}
-
-		public Actor GetById(int id)
+		//Get Actor Details from Database
+		public async Task<Actor> GetByIdAsync(int id)
 		{
-			throw new System.NotImplementedException();
+			var result = await _context.Actors.FirstOrDefaultAsync(n => n.Id == id);
+			return result;
 		}
 
 		public Actor Update(int id, Actor newActor)
